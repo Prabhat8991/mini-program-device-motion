@@ -9,6 +9,23 @@
       name="description"
       content="Web site created using create-react-app"
     />
+    <script>
+      // Polyfill for globalThis
+      (function () {
+        if (typeof globalThis !== 'undefined') return;
+        if (typeof self !== 'undefined') {
+          globalThis = self;
+        } else if (typeof window !== 'undefined') {
+          globalThis = window;
+        } else if (typeof global !== 'undefined') {
+          globalThis = global;
+        } else if (typeof this !== 'undefined') {
+          globalThis = this;
+        } else {
+          globalThis = {};
+        }
+      })();
+    </script>
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
